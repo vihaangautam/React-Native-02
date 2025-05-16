@@ -6,6 +6,7 @@ import { StatusBar } from 'expo-status-bar';
 import { Appearance } from 'react-native';
 import { Colors } from '@/constants/Colors';
 
+
 export default function RootLayout() {
   const colorScheme = Appearance.getColorScheme()
   const theme= colorScheme ==='dark' ? Colors.dark : Colors.light;
@@ -20,8 +21,10 @@ export default function RootLayout() {
 
   return (
    
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+      <Stack screenOptions={{ headerStyle: { backgroundColor:theme.headerBackground}, headerTintColor:theme.text, headerShadowVisible: false}}>
+        <Stack.Screen name="index" options={{ headerShown: false, title :'Home' }} />
+        <Stack.Screen name="contact" options={{ headerShown: true, title :'Contact', headerTitle:'Contact us' }} />
+        <Stack.Screen name="contact" options={{ headerShown: true, title :'Contact', headerTitle:'Contact us' }} />
         <Stack.Screen name="+not-found" />
       </Stack>
    
